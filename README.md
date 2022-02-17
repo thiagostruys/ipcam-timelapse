@@ -6,7 +6,7 @@ by date, then generating a timelapse video from the snapshots for a particular
 day.
 
 ## Requirements
-- Python 2.7
+- Python 3
 - OpenCV for Python
 
 ## Usage
@@ -18,8 +18,8 @@ The project consists of two runnable scripts, `take_snapshot.py` and
 `make_timelapse.py`.
 
 ### `take_snapshot.py`
-The `take_snapshot.py` script takes no parameters. When run, it simply consumes
-the configured camera stream and saves a single frame as a JPEG image. It saves
+The `take_snapshot.py` script has a time (time.sleep(60) parameters. It consumes
+the configured camera stream and saves a single frame as a JPEG image at the set time. It saves
 the image to the `snapshots/<date>` directory within the same directory in
 which the script is located (`<date>` is the current date in `YYYY-MM-DD`
 format). Even if the script is run in a different directory, the image will
@@ -61,11 +61,11 @@ You may run the script as follows:
 ```
 
 ## Setup
-### 1. Install Python 2.7
+### 1. Install Python 3
 If you're running a Linux distribution or macOS, chances are you already have
-Python 2.7 installed by default.
+Python 3 installed by default.
 
-If you're running Windows, you can install Python 2.7 by visiting
+If you're running Windows, you can install Python 3 by visiting
 https://www.python.org/downloads and downloading the appropriate installer for
 your platform.
 
@@ -78,9 +78,12 @@ Mint), then you should be able to easily install OpenCV by running:
 sudo apt-get install python-opencv
 ```
 
-Otherwise, if you have [`pip`](https://pypi.org/project/pip/) installed, you
+Otherwise, install [`pip`](https://pypi.org/project/pip/), you
 can try the following:
 
+```
+sudo apt install python3-pip
+```
 ```
 pip install opencv-contrib-python
 ```
@@ -97,6 +100,8 @@ stream_url = 'http://192.168.1.2:4321/stream.mjpg'
 Change the value of the `stream_url` variable to the correct URL for the video
 stream you wish to consume. A dummy URL is supplied in the code and will likely
 not work with your setup.
+
+### NEEDS EDITING 
 
 ### 4. Setup cron job (optional)
 Optionally, you may choose to run the snapshot and timelapse generator scripts
