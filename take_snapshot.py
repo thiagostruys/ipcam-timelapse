@@ -1,4 +1,8 @@
 #!/usr/bin/python
+
+
+# Credit to Tom Catullo https://github.com/Tom25 for starting this project.
+
 import time
 import datetime
 import cv2
